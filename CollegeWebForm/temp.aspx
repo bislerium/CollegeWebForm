@@ -1,24 +1,57 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ComplexFeeForm.aspx.cs" Inherits="CollegeWebForm.StudentFee" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="temp.aspx.cs" Inherits="CollegeWebForm.temp" %>
 
-<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <h2>View <%: Title %>Module Assignment & Result by Student</h2>
-    <p style="width: 1100px">Select the the student from the dropdown list. Each list item is the sum of student-id and full-name.</p>
+<!DOCTYPE html>
 
-    
-    <br />
-    <table class="nav-justified" style="height: 440px; width: 98%;">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <style type="text/css">
+
+table {
+  background-color: transparent;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+  *,
+  *:before,
+  *:after {
+    color: #000 !important;
+    text-shadow: none !important;
+    background: transparent !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+  }
+  td,
+th {
+  padding: 0;
+}
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <table class="nav-justified" style="width: 80%; height: 453px; margin-top: 0px;">
         <tr>
-            <td class="modal-lg" style="width: 420px; height: 50px;"></td>
-            <td style="height: 50px;"></td>
+            <td style="width: 1197px; height: 50px;">&nbsp;</td>
+            <td style="width: 200px; height: 50px;">&nbsp;</td>
+            <td style="width: 1130px; height: 50px;">&nbsp;</td>
+            <td style="height: 50px">&nbsp;</td>
         </tr>
         <tr>
-            <td class="modal-lg" style="width: 420px">
+            <td style="height: 55px; width: 1197px"></td>
+            <td style="height: 55px; width: 200px">
             <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource1" DataTextField="STUDENT_NAME" DataValueField="PERSON_ID" Height="45px" Width="260px">
             </asp:DropDownList>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT PERSON.PERSON_ID, CONCAT(CONCAT(PERSON.PERSON_ID, ' - '), PERSON.FULL_NAME) AS STUDENT_NAME FROM PERSON, STUDENT WHERE PERSON.PERSON_ID = STUDENT.STUDENT_ID"></asp:SqlDataSource>
             </td>
-            <td rowspan="3">
-            <asp:GridView ID="GridView1" runat="server" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="STUDENT_ID" DataSourceID="SqlDataSource3" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Horizontal" Width="750px">
+            <td rowspan="3" style="width: 1130px" class="modal-lg">
+            <asp:GridView ID="GridView1" runat="server" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="STUDENT_ID" DataSourceID="SqlDataSource3" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Horizontal" Width="709px">
                 <AlternatingRowStyle BackColor="#F7F7F7" />
                 <Columns>
                     <asp:BoundField DataField="MODULE_CODE" HeaderText="MODULE_CODE" SortExpression="MODULE_CODE" />
@@ -44,14 +77,18 @@
                 </SelectParameters>
             </asp:SqlDataSource>
             </td>
+            <td style="height: 55px"></td>
         </tr>
         <tr>
-            <td class="modal-lg" style="width: 420px; height: 40px;">
+            <td style="width: 1197px; height: 50px;"></td>
+            <td style="width: 200px; height: 50px;">
             </td>
+            <td style="height: 50px"></td>
         </tr>
         <tr>
-            <td class="modal-lg" style="width: 420px">
-                 <asp:FormView ID="FormView1" runat="server" DataKeyNames="STUDENT_ID,EMAIL" DataSourceID="SqlDataSource2" Width="396px">          
+            <td style="width: 1197px; height: 290px;">&nbsp;</td>
+            <td style="width: 200px; height: 290px;">
+                 <asp:FormView ID="FormView1" runat="server" DataKeyNames="STUDENT_ID,EMAIL" DataSourceID="SqlDataSource2" Width="272px">          
             <ItemTemplate>
                 <Table>
                      <table class="nav-justified">
@@ -100,12 +137,16 @@
                 </SelectParameters>
             </asp:SqlDataSource>
             </td>
+            <td style="height: 290px">&nbsp;</td>
         </tr>
         <tr>
-            <td class="modal-lg" style="width: 420px">&nbsp;</td>
+            <td style="width: 1197px" class="modal-sm">&nbsp;</td>
+            <td style="width: 200px" class="modal-sm">&nbsp;</td>
+            <td style="width: 1130px" class="modal-lg">&nbsp;</td>
             <td>&nbsp;</td>
         </tr>
     </table>
 
-    
-</asp:Content>
+    </form>
+</body>
+</html>

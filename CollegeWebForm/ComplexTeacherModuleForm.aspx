@@ -1,109 +1,27 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ComplexTeacherModuleForm.aspx.cs" Inherits="CollegeWebForm.TeacherModule" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ComplexFeeForm.aspx.cs" Inherits="CollegeWebForm.StudentFee" %>
 
-<!DOCTYPE html>
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+    <h2>View <%: Title %>Module Allocation per Teacher</h2>
+    <p style="width: 1232px">Select the the teacher from the dropdown list. Each list item is the sum of teacher-id and full-name.</p>
+    <table class="nav-justified" style="height: 440px; width: 85%;">
+        <tr>
+            <td style="width: 420px; height: 50px;" class="modal-sm"></td>
+            <td style="width: 2px; height: 50px;"></td>
+        </tr>
+        <tr>
+            <td style="width: 420px; height: 59px">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div>
-
-            <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource2" DataTextField="TEACHER_NAME" AutoPostBack="True" DataValueField="PERSON_ID">
+            <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource2" DataTextField="TEACHER_NAME" AutoPostBack="True" DataValueField="PERSON_ID" Height="45px" Width="260px">
             </asp:DropDownList>
             <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT TEACHER.TEACHER_ID, PERSON.FULL_NAME, PERSON.GENDER, PERSON.DOB, PERSON.PHONE, PERSON.EMAIL, TEACHER.SALARY, TEACHER.DATE_JOINED FROM PERSON, TEACHER WHERE PERSON.PERSON_ID = TEACHER.TEACHER_ID AND (TEACHER.TEACHER_ID = :TEACHER_ID)">
                 <SelectParameters>
                     <asp:ControlParameter ControlID="DropDownList1" Name="TEACHER_ID" PropertyName="SelectedValue" />
                 </SelectParameters>
             </asp:SqlDataSource>
-            <asp:FormView ID="FormView1" runat="server" DataKeyNames="TEACHER_ID,EMAIL" DataSourceID="SqlDataSource3">
-                <EditItemTemplate>
-                    TEACHER_ID:
-                    <asp:Label ID="TEACHER_IDLabel1" runat="server" Text='<%# Eval("TEACHER_ID") %>' />
-                    <br />
-                    FULL_NAME:
-                    <asp:TextBox ID="FULL_NAMETextBox" runat="server" Text='<%# Bind("FULL_NAME") %>' />
-                    <br />
-                    GENDER:
-                    <asp:TextBox ID="GENDERTextBox" runat="server" Text='<%# Bind("GENDER") %>' />
-                    <br />
-                    DOB:
-                    <asp:TextBox ID="DOBTextBox" runat="server" Text='<%# Bind("DOB") %>' />
-                    <br />
-                    PHONE:
-                    <asp:TextBox ID="PHONETextBox" runat="server" Text='<%# Bind("PHONE") %>' />
-                    <br />
-                    EMAIL:
-                    <asp:Label ID="EMAILLabel1" runat="server" Text='<%# Eval("EMAIL") %>' />
-                    <br />
-                    SALARY:
-                    <asp:TextBox ID="SALARYTextBox" runat="server" Text='<%# Bind("SALARY") %>' />
-                    <br />
-                    DATE_JOINED:
-                    <asp:TextBox ID="DATE_JOINEDTextBox" runat="server" Text='<%# Bind("DATE_JOINED") %>' />
-                    <br />
-                    <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" />
-                    &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
-                </EditItemTemplate>
-                <InsertItemTemplate>
-                    TEACHER_ID:
-                    <asp:TextBox ID="TEACHER_IDTextBox" runat="server" Text='<%# Bind("TEACHER_ID") %>' />
-                    <br />
-                    FULL_NAME:
-                    <asp:TextBox ID="FULL_NAMETextBox" runat="server" Text='<%# Bind("FULL_NAME") %>' />
-                    <br />
-                    GENDER:
-                    <asp:TextBox ID="GENDERTextBox" runat="server" Text='<%# Bind("GENDER") %>' />
-                    <br />
-                    DOB:
-                    <asp:TextBox ID="DOBTextBox" runat="server" Text='<%# Bind("DOB") %>' />
-                    <br />
-                    PHONE:
-                    <asp:TextBox ID="PHONETextBox" runat="server" Text='<%# Bind("PHONE") %>' />
-                    <br />
-                    EMAIL:
-                    <asp:TextBox ID="EMAILTextBox" runat="server" Text='<%# Bind("EMAIL") %>' />
-                    <br />
-                    SALARY:
-                    <asp:TextBox ID="SALARYTextBox" runat="server" Text='<%# Bind("SALARY") %>' />
-                    <br />
-                    DATE_JOINED:
-                    <asp:TextBox ID="DATE_JOINEDTextBox" runat="server" Text='<%# Bind("DATE_JOINED") %>' />
-                    <br />
-                    <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />
-                    &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
-                </InsertItemTemplate>
-                <ItemTemplate>
-                    TEACHER_ID:
-                    <asp:Label ID="TEACHER_IDLabel" runat="server" Text='<%# Eval("TEACHER_ID") %>' />
-                    <br />
-                    FULL_NAME:
-                    <asp:Label ID="FULL_NAMELabel" runat="server" Text='<%# Bind("FULL_NAME") %>' />
-                    <br />
-                    GENDER:
-                    <asp:Label ID="GENDERLabel" runat="server" Text='<%# Bind("GENDER") %>' />
-                    <br />
-                    DOB:
-                    <asp:Label ID="DOBLabel" runat="server" Text='<%# Bind("DOB") %>' />
-                    <br />
-                    PHONE:
-                    <asp:Label ID="PHONELabel" runat="server" Text='<%# Bind("PHONE") %>' />
-                    <br />
-                    EMAIL:
-                    <asp:Label ID="EMAILLabel" runat="server" Text='<%# Eval("EMAIL") %>' />
-                    <br />
-                    SALARY:
-                    <asp:Label ID="SALARYLabel" runat="server" Text='<%# Bind("SALARY") %>' />
-                    <br />
-                    DATE_JOINED:
-                    <asp:Label ID="DATE_JOINEDLabel" runat="server" Text='<%# Bind("DATE_JOINED") %>' />
-                    <br />
-
-                </ItemTemplate>
-            </asp:FormView>
-        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT PERSON.PERSON_ID, CONCAT(CONCAT(PERSON.PERSON_ID, ' - '), PERSON.FULL_NAME) AS TEACHER_NAME FROM PERSON, TEACHER WHERE PERSON.PERSON_ID = TEACHER.TEACHER_ID"></asp:SqlDataSource>
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="TEACHER_ID,MODULE_ID" DataSourceID="SqlDataSource1">
+            </td>
+            <td rowspan="3" style="width: 2px">
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="TEACHER_ID,MODULE_ID" DataSourceID="SqlDataSource1" Width="760px" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Horizontal">
+                <AlternatingRowStyle BackColor="#F7F7F7" />
                 <Columns>
                     <asp:BoundField DataField="MODULE_ID" HeaderText="MODULE_ID" SortExpression="MODULE_ID" ReadOnly="True" />
                     <asp:BoundField DataField="MODULE_CODE" HeaderText="MODULE_CODE" SortExpression="MODULE_CODE" />
@@ -111,14 +29,72 @@
                     <asp:BoundField DataField="WEEK_DURATION" HeaderText="WEEK_DURATION" SortExpression="WEEK_DURATION" />
                     <asp:BoundField DataField="CREDIT_HOURS" HeaderText="CREDIT_HOURS" SortExpression="CREDIT_HOURS" />
                 </Columns>
+                <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
+                <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#F7F7F7" />
+                <PagerStyle BackColor="#E7E7FF" ForeColor="#4A3C8C" HorizontalAlign="Right" />
+                <RowStyle BackColor="#E7E7FF" ForeColor="#4A3C8C" />
+                <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="#F7F7F7" />
+                <SortedAscendingCellStyle BackColor="#F4F4FD" />
+                <SortedAscendingHeaderStyle BackColor="#5A4C9D" />
+                <SortedDescendingCellStyle BackColor="#D8D8F0" />
+                <SortedDescendingHeaderStyle BackColor="#3E3277" />
             </asp:GridView>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT TEACHER.TEACHER_ID, &quot;MODULE&quot;.MODULE_ID, &quot;MODULE&quot;.MODULE_CODE, &quot;MODULE&quot;.MODULE_NAME, &quot;MODULE&quot;.WEEK_DURATION, &quot;MODULE&quot;.CREDIT_HOURS FROM &quot;MODULE&quot;, MODULE_ALLOCATION, TEACHER WHERE &quot;MODULE&quot;.MODULE_ID = MODULE_ALLOCATION.MODULE_ID AND TEACHER.TEACHER_ID = MODULE_ALLOCATION.TEACHER_ID AND (TEACHER.TEACHER_ID = :TEACHER_ID)">
                 <SelectParameters>
                     <asp:ControlParameter ControlID="DropDownList1" Name="TEACHER_ID" PropertyName="SelectedValue" />
                 </SelectParameters>
             </asp:SqlDataSource>
-
-        </div>
-    </form>
-</body>
-</html>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 420px; height: 40px;" class="modal-sm"></td>
+        </tr>
+        <tr>
+            <td style="width: 420px; height: 290px;">
+                <asp:FormView ID="FormView1" runat="server" DataKeyNames="TEACHER_ID,EMAIL" DataSourceID="SqlDataSource3" Width="395px">
+                    <ItemTemplate>
+                <table class="nav-justified">
+                    <tr>
+                        <td>Teacher ID:</td>                    
+                        <td><asp:Label ID="TEACHER_IDLabel" runat="server" Text='<%# Eval("TEACHER_ID") %>' /></td>
+                    </tr>
+                    <tr>
+                        <td>Full Name:</td>
+                        <td><asp:Label ID="FULL_NAMELabel" runat="server" Text='<%# Bind("FULL_NAME") %>' /></td>
+                    </tr>
+                    <tr>
+                        <td>Gender:</td>
+                        <td><asp:Label ID="GENDERLabel" runat="server" Text='<%# Bind("GENDER") %>' /></td>
+                    </tr>
+                    <tr>
+                        <td>Date of Birth:</td>
+                        <td><asp:Label ID="DOBLabel" runat="server" Text='<%# Bind("DOB") %>' /></td>
+                    </tr>
+                    <tr>
+                        <td>Phone:</td>
+                        <td><asp:Label ID="PHONELabel" runat="server" Text='<%# Bind("PHONE") %>' /></td>
+                    </tr>
+                    <tr>
+                        <td>Email:</td>
+                        <td><asp:Label ID="EMAILLabel" runat="server" Text='<%# Eval("EMAIL") %>' /></td>
+                    </tr>
+                    <tr>
+                        <td>Salary:</td>
+                        <td><asp:Label ID="SALARYLabel" runat="server" Text='<%# Bind("SALARY") %>' /></td>
+                    </tr>
+                    <tr>
+                        <td>Date Joined:</td>
+                        <td><asp:Label ID="DATE_JOINEDLabel" runat="server" Text='<%# Bind("DATE_JOINED") %>' /></td>
+                    </tr>                    
+                </table>
+               </ItemTemplate>
+            </asp:FormView>
+        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT PERSON.PERSON_ID, CONCAT(CONCAT(PERSON.PERSON_ID, ' - '), PERSON.FULL_NAME) AS TEACHER_NAME FROM PERSON, TEACHER WHERE PERSON.PERSON_ID = TEACHER.TEACHER_ID"></asp:SqlDataSource>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 420px" class="modal-sm">&nbsp;</td>
+            <td style="width: 2px">&nbsp;</td>
+        </tr>
+    </table>
+</asp:Content>
