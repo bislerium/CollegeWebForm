@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Department.aspx.cs" Inherits="CollegeWebForm.Department" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="BasicDepartment.aspx.cs" Inherits="CollegeWebForm.Department" %>
 
 <!DOCTYPE html>
 

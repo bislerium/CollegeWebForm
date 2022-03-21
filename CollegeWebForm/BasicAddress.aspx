@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Address.aspx.cs" Inherits="CollegeWebForm.Teacher_details" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="BasicAddress.aspx.cs" Inherits="CollegeWebForm.Teacher_details" %>
 
 <!DOCTYPE html>
 
