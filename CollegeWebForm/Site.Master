@@ -51,8 +51,22 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/">Home</a></li>
-                        <li><a runat="server" href="~/About">About</a></li>
-                        <li><a runat="server" href="~/Contact">Contact</a></li>
+                        <li><a runat="server" href="~/About">Person</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Student
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" runat="server" href="~/Contact">Action</a></li>
+                                <li><a class="dropdown-item" runat="server" href="~/StudentModule">Student: Module Enrolment</a></li>
+                            </ul>                       
+                        </li>
+                        <li><a runat="server" href="~/Contact">Teacher</a></li>
+                        <li><a runat="server" href="~/Contact">Module</a></li>
+                        <li><a runat="server" href="~/Contact">Department</a></li>
+                        <li><a runat="server" href="~/Contact">Fee</a></li>
+                        <li><a runat="server" href="~/Contact">Attendance</a></li>
+                        <li><a runat="server" href="~/Contact">Assignment</a></li>
                     </ul>
                 </div>
             </div>
