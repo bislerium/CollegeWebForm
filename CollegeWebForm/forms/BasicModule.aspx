@@ -13,7 +13,6 @@
         <tr>
             <td style="width: 420px">
                 <asp:FormView ID="FormView1" runat="server" DataKeyNames="MODULE_ID" DataSourceID="SqlDataSource1">
-
                     <InsertItemTemplate>
                         <table class="nav-justified" style="width: 400px; border-collapse: separate; border-spacing: 0 0.6em;">
                             <tr>

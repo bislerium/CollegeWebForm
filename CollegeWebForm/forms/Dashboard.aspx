@@ -111,17 +111,13 @@
         <td colspan="2">
             <asp:Chart ID="Chart6" runat="server" DataSourceID="SqlDataSource6" Width="600px">
                 <Series>
-                    <asp:Series ChartType="Line" Legend="Legend1" Name="Series1" XValueMember="FEE_TYPE" YValueMembers="sum">
+                    <asp:Series ChartType="Line" Name="Series1" XValueMember="FEE_TYPE" YValueMembers="sum" IsValueShownAsLabel="True">
                     </asp:Series>
                 </Series>
                 <ChartAreas>
                     <asp:ChartArea Name="ChartArea1">
                     </asp:ChartArea>
                 </ChartAreas>
-                <Legends>
-                    <asp:Legend Alignment="Center" Docking="Top" Name="Legend1">
-                    </asp:Legend>
-                </Legends>
                 <Titles>
                     <asp:Title Name="Title1" Text="Revenue per Fee-type">
                     </asp:Title>
