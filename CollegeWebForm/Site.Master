@@ -12,11 +12,11 @@
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
 
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
-<body>
+<body style="background-color: #f8f0ff;">
     <form runat="server">
         <asp:ScriptManager runat="server">
             <Scripts>
@@ -37,8 +37,7 @@
                 <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
-
-        <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar navbar-inverse navbar-fixed-top" style="background-color: #240045;">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -46,27 +45,29 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/">Application name</a>
+                    <a class="navbar-brand" runat="server" href="~/">CollegeDB Application</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Home</a></li>
-                        <li><a runat="server" href="~/About">Person</a></li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Student
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" runat="server" href="~/Contact">Action</a></li>
-                                <li><a class="dropdown-item" runat="server" href="~/StudentModule">Student: Module Enrolment</a></li>
-                            </ul>                       
+                        <li><a runat="server" href="~/">Dashboard</a></li>
+                        <li><a runat="server" href="~/forms/BasicAddress">Address</a></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" runat="server">Student</a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <li><a runat="server" href="~/forms/BasicStudent">CRUD</a></li>
+                                <li><a runat="server" href="~/forms/ComplexStudentFee">Fees</a></li>
+                                <li><a runat="server" href="~/forms/ComplexAssignmentResult">Assignment and Result</a></li>
+                            </ul>
                         </li>
-                        <li><a runat="server" href="~/Contact">Teacher</a></li>
-                        <li><a runat="server" href="~/Contact">Module</a></li>
-                        <li><a runat="server" href="~/Contact">Department</a></li>
-                        <li><a runat="server" href="~/Contact">Fee</a></li>
-                        <li><a runat="server" href="~/Contact">Attendance</a></li>
-                        <li><a runat="server" href="~/Contact">Assignment</a></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" runat="server">Teacher</a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <li><a runat="server" href="~/forms/BasicTeacher">CRUD</a></li>
+                                <li><a runat="server" href="~/forms/ComplexModuleAllocation">Module Allocation</a></li>
+                            </ul>
+                        </li>
+                        <li><a runat="server" href="~/forms/BasicDepartment">Department</a></li>
+                        <li><a runat="server" href="~/forms/BasicModule">Module</a></li>
                     </ul>
                 </div>
             </div>
@@ -76,10 +77,9 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - DB Application @Bishal Gc</p>
+                <p>&copy; <%: DateTime.Now.Year %> - DB Web Application @BishalGc</p>
             </footer>
         </div>
-
     </form>
 </body>
 </html>

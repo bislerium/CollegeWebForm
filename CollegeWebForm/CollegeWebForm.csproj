@@ -8,7 +8,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{150BEB3E-5C8A-427B-9839-FB12031BE131}</ProjectGuid>
+    <ProjectGuid>{1AEA0594-8C06-4C45-968A-7FA61DD1FD07}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -17,7 +17,7 @@
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort>44315</IISExpressSSLPort>
+    <IISExpressSSLPort>44373</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -106,18 +106,23 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
-    <Content Include="BasicDepartment.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="forms\StudentAttendance.aspx" />
-    <Content Include="forms\StudentFee.aspx" />
-    <Content Include="forms\StudentModule.aspx" />
+    <Content Include="forms\BasicAddress.aspx" />
+    <Content Include="forms\BasicDepartment.aspx" />
+    <Content Include="forms\BasicModule.aspx" />
+    <Content Include="forms\BasicStudent.aspx" />
+    <Content Include="forms\BasicTeacher.aspx" />
+    <Content Include="forms\ComplexAssignmentResult.aspx" />
+    <Content Include="forms\ComplexModuleAllocation.aspx" />
+    <Content Include="forms\ComplexStudentFee.aspx" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -128,8 +133,6 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
-    <Content Include="BasicModule.aspx" />
-    <Content Include="forms\Person.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -159,14 +162,6 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
-    <Content Include="BasicAddress.aspx" />
-    <Content Include="BasicStudent.aspx" />
-    <Content Include="ComplexAssignmentForm.aspx" />
-    <Content Include="ComplexFeeForm.aspx" />
-    <Content Include="ComplexStudentModule.aspx" />
-    <Content Include="BasicTeacher.aspx" />
-    <Content Include="ComplexTeacherModuleForm.aspx" />
-    <Content Include="temp.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -182,6 +177,13 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -189,50 +191,64 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="BasicDepartment.aspx.cs">
+    <Compile Include="forms\BasicAddress.aspx.cs">
+      <DependentUpon>BasicAddress.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\BasicAddress.aspx.designer.cs">
+      <DependentUpon>BasicAddress.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\BasicDepartment.aspx.cs">
       <DependentUpon>BasicDepartment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="BasicDepartment.aspx.designer.cs">
+    <Compile Include="forms\BasicDepartment.aspx.designer.cs">
       <DependentUpon>BasicDepartment.aspx</DependentUpon>
     </Compile>
-    <Compile Include="forms\StudentAttendance.aspx.cs">
-      <DependentUpon>StudentAttendance.aspx</DependentUpon>
+    <Compile Include="forms\BasicModule.aspx.cs">
+      <DependentUpon>BasicModule.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="forms\StudentAttendance.aspx.designer.cs">
-      <DependentUpon>StudentAttendance.aspx</DependentUpon>
+    <Compile Include="forms\BasicModule.aspx.designer.cs">
+      <DependentUpon>BasicModule.aspx</DependentUpon>
     </Compile>
-    <Compile Include="forms\StudentFee.aspx.cs">
-      <DependentUpon>StudentFee.aspx</DependentUpon>
+    <Compile Include="forms\BasicStudent.aspx.cs">
+      <DependentUpon>BasicStudent.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="forms\StudentFee.aspx.designer.cs">
-      <DependentUpon>StudentFee.aspx</DependentUpon>
+    <Compile Include="forms\BasicStudent.aspx.designer.cs">
+      <DependentUpon>BasicStudent.aspx</DependentUpon>
     </Compile>
-    <Compile Include="forms\StudentModule.aspx.cs">
-      <DependentUpon>StudentModule.aspx</DependentUpon>
+    <Compile Include="forms\BasicTeacher.aspx.cs">
+      <DependentUpon>BasicTeacher.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="forms\StudentModule.aspx.designer.cs">
-      <DependentUpon>StudentModule.aspx</DependentUpon>
+    <Compile Include="forms\BasicTeacher.aspx.designer.cs">
+      <DependentUpon>BasicTeacher.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\ComplexAssignmentResult.aspx.cs">
+      <DependentUpon>ComplexAssignmentResult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\ComplexAssignmentResult.aspx.designer.cs">
+      <DependentUpon>ComplexAssignmentResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\ComplexModuleAllocation.aspx.cs">
+      <DependentUpon>ComplexModuleAllocation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\ComplexModuleAllocation.aspx.designer.cs">
+      <DependentUpon>ComplexModuleAllocation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\ComplexStudentFee.aspx.cs">
+      <DependentUpon>ComplexStudentFee.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\ComplexStudentFee.aspx.designer.cs">
+      <DependentUpon>ComplexStudentFee.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="BasicModule.aspx.cs">
-      <DependentUpon>BasicModule.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="BasicModule.aspx.designer.cs">
-      <DependentUpon>BasicModule.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="forms\Person.aspx.cs">
-      <DependentUpon>Person.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="forms\Person.aspx.designer.cs">
-      <DependentUpon>Person.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
@@ -248,62 +264,6 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
-    </Compile>
-    <Compile Include="BasicAddress.aspx.cs">
-      <DependentUpon>BasicAddress.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="BasicAddress.aspx.designer.cs">
-      <DependentUpon>BasicAddress.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="BasicStudent.aspx.cs">
-      <DependentUpon>BasicStudent.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="BasicStudent.aspx.designer.cs">
-      <DependentUpon>BasicStudent.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ComplexAssignmentForm.aspx.cs">
-      <DependentUpon>ComplexAssignmentForm.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ComplexAssignmentForm.aspx.designer.cs">
-      <DependentUpon>ComplexAssignmentForm.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ComplexFeeForm.aspx.cs">
-      <DependentUpon>ComplexFeeForm.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ComplexFeeForm.aspx.designer.cs">
-      <DependentUpon>ComplexFeeForm.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ComplexStudentModule.aspx.cs">
-      <DependentUpon>ComplexStudentModule.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ComplexStudentModule.aspx.designer.cs">
-      <DependentUpon>ComplexStudentModule.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="BasicTeacher.aspx.cs">
-      <DependentUpon>BasicTeacher.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="BasicTeacher.aspx.designer.cs">
-      <DependentUpon>BasicTeacher.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ComplexTeacherModuleForm.aspx.cs">
-      <DependentUpon>ComplexTeacherModuleForm.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ComplexTeacherModuleForm.aspx.designer.cs">
-      <DependentUpon>ComplexTeacherModuleForm.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="temp.aspx.cs">
-      <DependentUpon>temp.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="temp.aspx.designer.cs">
-      <DependentUpon>temp.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
@@ -340,9 +300,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>53633</DevelopmentServerPort>
+          <DevelopmentServerPort>50509</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44315/</IISUrl>
+          <IISUrl>https://localhost:44373/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
