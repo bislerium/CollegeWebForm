@@ -76,7 +76,7 @@
                     </InsertItemTemplate>
                     <ItemTemplate>
                         &nbsp;<asp:LinkButton class="btn btn-primary" ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="First, create a person account" />
-                    </ItemTemplate>
+                    </ItemTemplate>                 
                 </asp:FormView>
             </td>
             <td style="height: 23px; width: 20px;">&nbsp;</td>
@@ -132,12 +132,21 @@
                     <AlternatingRowStyle BackColor="#F7F7F7" />
                     <Columns>
                         <asp:BoundField DataField="PERSON_ID" HeaderText="PERSON_ID" ReadOnly="True" SortExpression="PERSON_ID" />
-                        <asp:BoundField DataField="PERSON_TYPE" HeaderText="PERSON_TYPE" SortExpression="PERSON_TYPE" />
                         <asp:BoundField DataField="FULL_NAME" HeaderText="FULL_NAME" SortExpression="FULL_NAME" />
                         <asp:BoundField DataField="GENDER" HeaderText="GENDER" SortExpression="GENDER" />
                         <asp:BoundField DataField="DOB" HeaderText="DOB" SortExpression="DOB" />
                         <asp:BoundField DataField="PHONE" HeaderText="PHONE" SortExpression="PHONE" />
                         <asp:BoundField DataField="EMAIL" HeaderText="EMAIL" SortExpression="EMAIL" />
+                        <asp:TemplateField ShowHeader="False">
+                            <EditItemTemplate>
+                                <asp:Button class="btn btn-success" ID="Button1" runat="server" CausesValidation="True" CommandName="Update" Text="Update" />
+                                &nbsp;<asp:Button class="btn btn-seconodary" ID="Button2" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+                            </EditItemTemplate>
+                            <ItemTemplate>
+                                <asp:Button class="btn btn-success" ID="Button1" runat="server" CausesValidation="False" CommandName="Edit" Text="Edit" />
+                                &nbsp;<asp:Button class="btn btn-danger" ID="Button2" runat="server" CausesValidation="False" CommandName="Delete" Text="Delete" />
+                            </ItemTemplate>
+                        </asp:TemplateField>
                     </Columns>
                     <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
                     <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#F7F7F7" />
@@ -150,7 +159,7 @@
                     <SortedDescendingCellStyle BackColor="#D8D8F0" />
                     <SortedDescendingHeaderStyle BackColor="#3E3277" />
                 </asp:GridView>
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:collegedb %>" DeleteCommand="DELETE FROM &quot;PERSON&quot; WHERE &quot;PERSON_ID&quot; = :original_PERSON_ID AND &quot;PERSON_TYPE&quot; = :original_PERSON_TYPE AND &quot;FULL_NAME&quot; = :original_FULL_NAME AND &quot;GENDER&quot; = :original_GENDER AND &quot;DOB&quot; = :original_DOB AND &quot;PHONE&quot; = :original_PHONE AND &quot;EMAIL&quot; = :original_EMAIL" InsertCommand="INSERT INTO &quot;PERSON&quot; (&quot;PERSON_ID&quot;, &quot;PERSON_TYPE&quot;, &quot;FULL_NAME&quot;, &quot;GENDER&quot;, &quot;DOB&quot;, &quot;PHONE&quot;, &quot;EMAIL&quot;) VALUES (:PERSON_ID, :PERSON_TYPE, :FULL_NAME, :GENDER, :DOB, :PHONE, :EMAIL)" OldValuesParameterFormatString="original_{0}" ProviderName="<%$ ConnectionStrings:collegedb.ProviderName %>" SelectCommand="SELECT * FROM &quot;PERSON&quot;" UpdateCommand="UPDATE &quot;PERSON&quot; SET &quot;PERSON_TYPE&quot; = :PERSON_TYPE, &quot;FULL_NAME&quot; = :FULL_NAME, &quot;GENDER&quot; = :GENDER, &quot;DOB&quot; = :DOB, &quot;PHONE&quot; = :PHONE, &quot;EMAIL&quot; = :EMAIL WHERE &quot;PERSON_ID&quot; = :original_PERSON_ID AND &quot;PERSON_TYPE&quot; = :original_PERSON_TYPE AND &quot;FULL_NAME&quot; = :original_FULL_NAME AND &quot;GENDER&quot; = :original_GENDER AND &quot;DOB&quot; = :original_DOB AND &quot;PHONE&quot; = :original_PHONE AND &quot;EMAIL&quot; = :original_EMAIL">
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:collegedb %>" DeleteCommand="DELETE FROM &quot;PERSON&quot; WHERE &quot;PERSON_ID&quot; = :original_PERSON_ID AND &quot;PERSON_TYPE&quot; = :original_PERSON_TYPE AND &quot;FULL_NAME&quot; = :original_FULL_NAME AND &quot;GENDER&quot; = :original_GENDER AND &quot;DOB&quot; = :original_DOB AND &quot;PHONE&quot; = :original_PHONE AND &quot;EMAIL&quot; = :original_EMAIL" InsertCommand="INSERT INTO &quot;PERSON&quot; (&quot;PERSON_ID&quot;, &quot;PERSON_TYPE&quot;, &quot;FULL_NAME&quot;, &quot;GENDER&quot;, &quot;DOB&quot;, &quot;PHONE&quot;, &quot;EMAIL&quot;) VALUES (:PERSON_ID, :PERSON_TYPE, :FULL_NAME, :GENDER, :DOB, :PHONE, :EMAIL)" OldValuesParameterFormatString="original_{0}" ProviderName="<%$ ConnectionStrings:collegedb.ProviderName %>" SelectCommand="SELECT * FROM &quot;PERSON&quot; WHERE (&quot;PERSON_TYPE&quot; = :PERSON_TYPE)" UpdateCommand="UPDATE &quot;PERSON&quot; SET &quot;PERSON_TYPE&quot; = :PERSON_TYPE, &quot;FULL_NAME&quot; = :FULL_NAME, &quot;GENDER&quot; = :GENDER, &quot;DOB&quot; = :DOB, &quot;PHONE&quot; = :PHONE, &quot;EMAIL&quot; = :EMAIL WHERE &quot;PERSON_ID&quot; = :original_PERSON_ID AND &quot;PERSON_TYPE&quot; = :original_PERSON_TYPE AND &quot;FULL_NAME&quot; = :original_FULL_NAME AND &quot;GENDER&quot; = :original_GENDER AND &quot;DOB&quot; = :original_DOB AND &quot;PHONE&quot; = :original_PHONE AND &quot;EMAIL&quot; = :original_EMAIL">
                     <DeleteParameters>
                         <asp:Parameter Name="original_PERSON_ID" Type="Decimal" />
                         <asp:Parameter Name="original_PERSON_TYPE" Type="String" />
@@ -169,6 +178,9 @@
                         <asp:Parameter Name="PHONE" Type="String" />
                         <asp:Parameter Name="EMAIL" Type="String" />
                     </InsertParameters>
+                    <SelectParameters>
+                        <asp:Parameter DefaultValue="Teacher" Name="PERSON_TYPE" Type="String" />
+                    </SelectParameters>
                     <UpdateParameters>
                         <asp:Parameter Name="PERSON_TYPE" Type="String" />
                         <asp:Parameter Name="FULL_NAME" Type="String" />
@@ -200,6 +212,16 @@
                         <asp:BoundField DataField="TEACHER_ID" HeaderText="TEACHER_ID" ReadOnly="True" SortExpression="TEACHER_ID" />
                         <asp:BoundField DataField="SALARY" HeaderText="SALARY" SortExpression="SALARY" />
                         <asp:BoundField DataField="DATE_JOINED" HeaderText="DATE_JOINED" SortExpression="DATE_JOINED" />
+                        <asp:TemplateField ShowHeader="False">
+                            <EditItemTemplate>
+                                <asp:Button class="btn btn-success" ID="Button1" runat="server" CausesValidation="True" CommandName="Update" Text="Update" />
+                                &nbsp;<asp:Button class="btn btn-secondary" ID="Button2" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+                            </EditItemTemplate>
+                            <ItemTemplate>
+                                <asp:Button class="btn btn-success" ID="Button1" runat="server" CausesValidation="False" CommandName="Edit" Text="Edit" />
+                                &nbsp;<asp:Button class="btn btn-danger" ID="Button2" runat="server" CausesValidation="False" CommandName="Delete" Text="Delete" />
+                            </ItemTemplate>
+                        </asp:TemplateField>
                     </Columns>
                     <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
                     <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#F7F7F7" />

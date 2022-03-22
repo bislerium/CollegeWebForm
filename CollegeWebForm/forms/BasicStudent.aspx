@@ -14,63 +14,82 @@
         <tr>
             <td style="height: 23px; width: 627px;">
                 <asp:FormView ID="FormView1" runat="server" DataKeyNames="PERSON_ID" DataSourceID="SqlDataSource1">
+                    <EditItemTemplate>
+                        PERSON_ID:
+                        <asp:Label ID="PERSON_IDLabel1" runat="server" Text='<%# Eval("PERSON_ID") %>' />
+                        <br />
+                        PERSON_TYPE:
+                        <asp:TextBox ID="PERSON_TYPETextBox" runat="server" Text='<%# Bind("PERSON_TYPE") %>' />
+                        <br />
+                        FULL_NAME:
+                        <asp:TextBox ID="FULL_NAMETextBox" runat="server" Text='<%# Bind("FULL_NAME") %>' />
+                        <br />
+                        GENDER:
+                        <asp:TextBox ID="GENDERTextBox" runat="server" Text='<%# Bind("GENDER") %>' />
+                        <br />
+                        DOB:
+                        <asp:TextBox ID="DOBTextBox" runat="server" Text='<%# Bind("DOB") %>' />
+                        <br />
+                        PHONE:
+                        <asp:TextBox ID="PHONETextBox" runat="server" Text='<%# Bind("PHONE") %>' />
+                        <br />
+                        EMAIL:
+                        <asp:TextBox ID="EMAILTextBox" runat="server" Text='<%# Bind("EMAIL") %>' />
+                        <br />
+                        <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" />
+                        &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+                    </EditItemTemplate>
                     <InsertItemTemplate>
-                        <table class="nav-justified" style="width: 400px; border-collapse: separate; border-spacing: 0 0.6em;">
-                            <tr>
-                                <td>Person ID:</td>
-                                <td>&nbsp;</td>
-                                <td>
-                                    <asp:TextBox ID="PERSON_IDTextBox" runat="server" Text='<%# Bind("PERSON_ID") %>' TextMode="Number" /></td>
-                            </tr>
-                            <tr>
-                                <td>Person Type:</td>
-                                <td>&nbsp;</td>
-                                <td>
-                                    <asp:TextBox ID="PERSON_TYPETextBox" runat="server" Text='<%# Bind("PERSON_TYPE") %>' value="Student" ReadOnly="false"/></td>
-                            </tr>
-                            <tr>
-                                <td>Full Name:</td>
-                                <td>&nbsp;</td>
-                                <td>
-                                    <asp:TextBox ID="FULL_NAMETextBox" runat="server" Text='<%# Bind("FULL_NAME") %>' /></td>
-                            </tr>
-                            <tr>
-                                <td>Gender:</td>
-                                <td>&nbsp;</td>
-                                <td>
-                                    <asp:TextBox ID="GENDERTextBox" runat="server" Text='<%# Bind("GENDER") %>' /></td>
-                            </tr>
-                            <tr>
-                                <td>Date of Birth:</td>
-                                <td>&nbsp;</td>
-                                <td>
-                                    <asp:TextBox ID="DOBTextBox" runat="server" Text='<%# Bind("DOB") %>' TextMode="Date"/></td>
-                            </tr>
-                            <tr>
-                                <td>Phone:</td>
-                                <td>&nbsp;</td>
-                                <td>
-                                    <asp:TextBox ID="PHONETextBox" runat="server" Text='<%# Bind("PHONE") %>' TextMode="Phone"/></td>
-                            </tr>
-                            <tr>
-                                <td>Email:</td>
-                                <td>&nbsp;</td>
-                                <td>
-                                    <asp:TextBox ID="EMAILTextBox" runat="server" Text='<%# Bind("EMAIL") %>' TextMode="Email" /></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td>&nbsp;</td>
-                                <td>
-                                    <asp:LinkButton class="btn btn-primary" ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />
-                                    &nbsp;<asp:LinkButton class="btn btn-secondary" ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
-                                </td>
-                            </tr>
-                        </table>
+                        PERSON_ID:
+                        <asp:TextBox ID="PERSON_IDTextBox" runat="server" Text='<%# Bind("PERSON_ID") %>' />
+                        <br />
+                        PERSON_TYPE:
+                        <asp:TextBox ID="PERSON_TYPETextBox" runat="server" Text='<%# Bind("PERSON_TYPE") %>' />
+                        <br />
+                        FULL_NAME:
+                        <asp:TextBox ID="FULL_NAMETextBox" runat="server" Text='<%# Bind("FULL_NAME") %>' />
+                        <br />
+                        GENDER:
+                        <asp:TextBox ID="GENDERTextBox" runat="server" Text='<%# Bind("GENDER") %>' />
+                        <br />
+                        DOB:
+                        <asp:TextBox ID="DOBTextBox" runat="server" Text='<%# Bind("DOB") %>' />
+                        <br />
+                        PHONE:
+                        <asp:TextBox ID="PHONETextBox" runat="server" Text='<%# Bind("PHONE") %>' />
+                        <br />
+                        EMAIL:
+                        <asp:TextBox ID="EMAILTextBox" runat="server" Text='<%# Bind("EMAIL") %>' />
+                        <br />
+                        <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />
+                        &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
                     </InsertItemTemplate>
                     <ItemTemplate>
-                        &nbsp;<asp:LinkButton class="btn btn-primary" ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="First, create a person account" />
-                    </ItemTemplate>
+                        PERSON_ID:
+                        <asp:Label ID="PERSON_IDLabel" runat="server" Text='<%# Eval("PERSON_ID") %>' />
+                        <br />
+                        PERSON_TYPE:
+                        <asp:Label ID="PERSON_TYPELabel" runat="server" Text='<%# Bind("PERSON_TYPE") %>' />
+                        <br />
+                        FULL_NAME:
+                        <asp:Label ID="FULL_NAMELabel" runat="server" Text='<%# Bind("FULL_NAME") %>' />
+                        <br />
+                        GENDER:
+                        <asp:Label ID="GENDERLabel" runat="server" Text='<%# Bind("GENDER") %>' />
+                        <br />
+                        DOB:
+                        <asp:Label ID="DOBLabel" runat="server" Text='<%# Bind("DOB") %>' />
+                        <br />
+                        PHONE:
+                        <asp:Label ID="PHONELabel" runat="server" Text='<%# Bind("PHONE") %>' />
+                        <br />
+                        EMAIL:
+                        <asp:Label ID="EMAILLabel" runat="server" Text='<%# Bind("EMAIL") %>' />
+                        <br />
+                        <asp:LinkButton ID="EditButton" runat="server" CausesValidation="False" CommandName="Edit" Text="Edit" />
+                        &nbsp;<asp:LinkButton ID="DeleteButton" runat="server" CausesValidation="False" CommandName="Delete" Text="Delete" />
+                        &nbsp;<asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="New" />
+                    </ItemTemplate>       
                 </asp:FormView>
             </td>
             <td style="height: 23px; width: 20px;">&nbsp;</td>
@@ -138,6 +157,7 @@
                 <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" DataKeyNames="PERSON_ID" DataSourceID="SqlDataSource1" GridLines="Horizontal" Width="1200px">
                     <AlternatingRowStyle BackColor="#F7F7F7" />
                     <Columns>
+                        <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
                         <asp:BoundField DataField="PERSON_ID" HeaderText="PERSON_ID" ReadOnly="True" SortExpression="PERSON_ID" />
                         <asp:BoundField DataField="PERSON_TYPE" HeaderText="PERSON_TYPE" SortExpression="PERSON_TYPE" />
                         <asp:BoundField DataField="FULL_NAME" HeaderText="FULL_NAME" SortExpression="FULL_NAME" />
@@ -145,7 +165,6 @@
                         <asp:BoundField DataField="DOB" HeaderText="DOB" SortExpression="DOB" />
                         <asp:BoundField DataField="PHONE" HeaderText="PHONE" SortExpression="PHONE" />
                         <asp:BoundField DataField="EMAIL" HeaderText="EMAIL" SortExpression="EMAIL" />
-                        <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
                     </Columns>
                     <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
                     <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#F7F7F7" />
@@ -158,7 +177,7 @@
                     <SortedDescendingCellStyle BackColor="#D8D8F0" />
                     <SortedDescendingHeaderStyle BackColor="#3E3277" />
                 </asp:GridView>
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:collegedb %>" DeleteCommand="DELETE FROM &quot;PERSON&quot; WHERE &quot;PERSON_ID&quot; = :original_PERSON_ID AND &quot;PERSON_TYPE&quot; = :original_PERSON_TYPE AND &quot;FULL_NAME&quot; = :original_FULL_NAME AND &quot;GENDER&quot; = :original_GENDER AND &quot;DOB&quot; = :original_DOB AND &quot;PHONE&quot; = :original_PHONE AND &quot;EMAIL&quot; = :original_EMAIL" InsertCommand="INSERT INTO &quot;PERSON&quot; (&quot;PERSON_ID&quot;, &quot;PERSON_TYPE&quot;, &quot;FULL_NAME&quot;, &quot;GENDER&quot;, &quot;DOB&quot;, &quot;PHONE&quot;, &quot;EMAIL&quot;) VALUES (:PERSON_ID, :PERSON_TYPE, :FULL_NAME, :GENDER, :DOB, :PHONE, :EMAIL)" OldValuesParameterFormatString="original_{0}" ProviderName="<%$ ConnectionStrings:collegedb.ProviderName %>" SelectCommand="SELECT * FROM &quot;PERSON&quot;" UpdateCommand="UPDATE &quot;PERSON&quot; SET &quot;PERSON_TYPE&quot; = :PERSON_TYPE, &quot;FULL_NAME&quot; = :FULL_NAME, &quot;GENDER&quot; = :GENDER, &quot;DOB&quot; = :DOB, &quot;PHONE&quot; = :PHONE, &quot;EMAIL&quot; = :EMAIL WHERE &quot;PERSON_ID&quot; = :original_PERSON_ID AND &quot;PERSON_TYPE&quot; = :original_PERSON_TYPE AND &quot;FULL_NAME&quot; = :original_FULL_NAME AND &quot;GENDER&quot; = :original_GENDER AND &quot;DOB&quot; = :original_DOB AND &quot;PHONE&quot; = :original_PHONE AND &quot;EMAIL&quot; = :original_EMAIL">
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:collegedb %>" DeleteCommand="DELETE FROM &quot;PERSON&quot; WHERE &quot;PERSON_ID&quot; = :original_PERSON_ID AND &quot;PERSON_TYPE&quot; = :original_PERSON_TYPE AND &quot;FULL_NAME&quot; = :original_FULL_NAME AND &quot;GENDER&quot; = :original_GENDER AND &quot;DOB&quot; = :original_DOB AND &quot;PHONE&quot; = :original_PHONE AND &quot;EMAIL&quot; = :original_EMAIL" InsertCommand="INSERT INTO &quot;PERSON&quot; (&quot;PERSON_ID&quot;, &quot;PERSON_TYPE&quot;, &quot;FULL_NAME&quot;, &quot;GENDER&quot;, &quot;DOB&quot;, &quot;PHONE&quot;, &quot;EMAIL&quot;) VALUES (:PERSON_ID, :PERSON_TYPE, :FULL_NAME, :GENDER, :DOB, :PHONE, :EMAIL)" OldValuesParameterFormatString="original_{0}" ProviderName="<%$ ConnectionStrings:collegedb.ProviderName %>" SelectCommand="SELECT * FROM &quot;PERSON&quot; WHERE (&quot;PERSON_TYPE&quot; = :PERSON_TYPE)" UpdateCommand="UPDATE &quot;PERSON&quot; SET &quot;PERSON_TYPE&quot; = :PERSON_TYPE, &quot;FULL_NAME&quot; = :FULL_NAME, &quot;GENDER&quot; = :GENDER, &quot;DOB&quot; = :DOB, &quot;PHONE&quot; = :PHONE, &quot;EMAIL&quot; = :EMAIL WHERE &quot;PERSON_ID&quot; = :original_PERSON_ID AND &quot;PERSON_TYPE&quot; = :original_PERSON_TYPE AND &quot;FULL_NAME&quot; = :original_FULL_NAME AND &quot;GENDER&quot; = :original_GENDER AND &quot;DOB&quot; = :original_DOB AND &quot;PHONE&quot; = :original_PHONE AND &quot;EMAIL&quot; = :original_EMAIL">
                     <DeleteParameters>
                         <asp:Parameter Name="original_PERSON_ID" Type="Decimal" />
                         <asp:Parameter Name="original_PERSON_TYPE" Type="String" />
@@ -177,6 +196,9 @@
                         <asp:Parameter Name="PHONE" Type="String" />
                         <asp:Parameter Name="EMAIL" Type="String" />
                     </InsertParameters>
+                    <SelectParameters>
+                        <asp:Parameter DefaultValue="Student" Name="PERSON_TYPE" Type="String" />
+                    </SelectParameters>
                     <UpdateParameters>
                         <asp:Parameter Name="PERSON_TYPE" Type="String" />
                         <asp:Parameter Name="FULL_NAME" Type="String" />
