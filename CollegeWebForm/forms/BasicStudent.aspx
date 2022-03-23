@@ -27,7 +27,7 @@
                                 <td>Person Type:</td>
                                 <td>&nbsp;</td>
                                 <td>
-                                    <asp:TextBox ID="PERSON_TYPETextBox" runat="server" Text='<%# Bind("PERSON_TYPE") %>' value="Teacher"/>
+                                    <asp:TextBox ID="PERSON_TYPETextBox" runat="server" Text='<%# Bind("PERSON_TYPE") %>' value="Student"/>
                                 </td>
                             </tr>
                             <tr>
@@ -96,7 +96,7 @@
                                 <td>Specialization:</td>
                                 <td>&nbsp;</td>
                                 <td>
-                                    <asp:TextBox ID="SPECIALIZATIONTextBox" runat="server" Text='<%# Bind("SPECIALIZATION") %>' value="Teacher"/>
+                                    <asp:TextBox ID="SPECIALIZATIONTextBox" runat="server" Text='<%# Bind("SPECIALIZATION") %>'/>
                                 </td>
                             </tr>
                             <tr>
