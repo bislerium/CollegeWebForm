@@ -52,120 +52,57 @@
             <tr>
                 <td style="width: 420px">
                     <asp:FormView ID="FormView1" runat="server" DataKeyNames="STUDENT_ID,EMAIL" DataSourceID="SqlDataSource3" Width="395px">
-                        <EditItemTemplate>
-                            STUDENT_ID:
-                            <asp:Label ID="STUDENT_IDLabel1" runat="server" Text='<%# Eval("STUDENT_ID") %>' />
-                            <br />
-                            FULL_NAME:
-                            <asp:TextBox ID="FULL_NAMETextBox" runat="server" Text='<%# Bind("FULL_NAME") %>' />
-                            <br />
-                            GENDER:
-                            <asp:TextBox ID="GENDERTextBox" runat="server" Text='<%# Bind("GENDER") %>' />
-                            <br />
-                            DOB:
-                            <asp:TextBox ID="DOBTextBox" runat="server" Text='<%# Bind("DOB") %>' />
-                            <br />
-                            PHONE:
-                            <asp:TextBox ID="PHONETextBox" runat="server" Text='<%# Bind("PHONE") %>' />
-                            <br />
-                            EMAIL:
-                            <asp:Label ID="EMAILLabel1" runat="server" Text='<%# Eval("EMAIL") %>' />
-                            <br />
-                            SPECIALIZATION:
-                            <asp:TextBox ID="SPECIALIZATIONTextBox" runat="server" Text='<%# Bind("SPECIALIZATION") %>' />
-                            <br />
-                            group:
-                            <asp:TextBox ID="groupTextBox" runat="server" Text='<%# Bind("group") %>' />
-                            <br />
-                            DATE_JOINED:
-                            <asp:TextBox ID="DATE_JOINEDTextBox" runat="server" Text='<%# Bind("DATE_JOINED") %>' />
-                            <br />
-                            <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" />
-                            &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
-                        </EditItemTemplate>
-                        <InsertItemTemplate>
-                            STUDENT_ID:
-                            <asp:TextBox ID="STUDENT_IDTextBox" runat="server" Text='<%# Bind("STUDENT_ID") %>' />
-                            <br />
-                            FULL_NAME:
-                            <asp:TextBox ID="FULL_NAMETextBox" runat="server" Text='<%# Bind("FULL_NAME") %>' />
-                            <br />
-                            GENDER:
-                            <asp:TextBox ID="GENDERTextBox" runat="server" Text='<%# Bind("GENDER") %>' />
-                            <br />
-                            DOB:
-                            <asp:TextBox ID="DOBTextBox" runat="server" Text='<%# Bind("DOB") %>' />
-                            <br />
-                            PHONE:
-                            <asp:TextBox ID="PHONETextBox" runat="server" Text='<%# Bind("PHONE") %>' />
-                            <br />
-                            EMAIL:
-                            <asp:TextBox ID="EMAILTextBox" runat="server" Text='<%# Bind("EMAIL") %>' />
-                            <br />
-                            SPECIALIZATION:
-                            <asp:TextBox ID="SPECIALIZATIONTextBox" runat="server" Text='<%# Bind("SPECIALIZATION") %>' />
-                            <br />
-                            group:
-                            <asp:TextBox ID="groupTextBox" runat="server" Text='<%# Bind("group") %>' />
-                            <br />
-                            DATE_JOINED:
-                            <asp:TextBox ID="DATE_JOINEDTextBox" runat="server" Text='<%# Bind("DATE_JOINED") %>' />
-                            <br />
-                            <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />
-                            &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
-                        </InsertItemTemplate>
                         <ItemTemplate>
                             <table class="nav-justified">
-                                <table class="nav-justified">
-                                    <tr>
-                                        <td>Student ID:</td>
-                                        <td>
-                                            <asp:Label ID="STUDENT_IDLabel" runat="server" Text='<%# Eval("STUDENT_ID") %>' /></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Full Name:</td>
-                                        <td>
-                                            <asp:Label ID="FULL_NAMELabel" runat="server" Text='<%# Bind("FULL_NAME") %>' /></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Gender:</td>
-                                        <td>
-                                            <asp:Label ID="GENDERLabel" runat="server" Text='<%# Bind("GENDER") %>' /></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Date of Birth:</td>
-                                        <td>
-                                            <asp:Label ID="DOBLabel" runat="server" Text='<%# Bind("DOB") %>' /></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Phone:</td>
-                                        <td>
-                                            <asp:Label ID="PHONELabel" runat="server" Text='<%# Bind("PHONE") %>' /></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Email:</td>
-                                        <td>
-                                            <asp:Label ID="EMAILLabel" runat="server" Text='<%# Eval("EMAIL") %>' /></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Specialization:</td>
-                                        <td>
-                                            <asp:Label ID="SPECIALIZATIONLabel" runat="server" Text='<%# Bind("SPECIALIZATION") %>' /></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Group:</td>
-                                        <td>
-                                            <asp:Label ID="groupLabel" runat="server" Text='<%# Bind("group") %>' /></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Date Joined:</td>
-                                        <td>
-                                            <asp:Label ID="DATE_JOINEDLabel" runat="server" Text='<%# Bind("DATE_JOINED") %>' /></td>
-                                    </tr>
-                                </table>
+                                <tr>
+                                    <td>Student ID:</td>
+                                    <td>
+                                        <asp:Label ID="STUDENT_IDLabel" runat="server" Text='<%# Eval("STUDENT_ID") %>' /></td>
+                                </tr>
+                                <tr>
+                                    <td>Full Name:</td>
+                                    <td>
+                                        <asp:Label ID="FULL_NAMELabel" runat="server" Text='<%# Bind("FULL_NAME") %>' /></td>
+                                </tr>
+                                <tr>
+                                    <td>Gender:</td>
+                                    <td>
+                                        <asp:Label ID="GENDERLabel" runat="server" Text='<%# Bind("GENDER") %>' /></td>
+                                </tr>
+                                <tr>
+                                    <td>Date of Birth:</td>
+                                    <td>
+                                        <asp:Label ID="DOBLabel" runat="server" Text='<%# Bind("DOB") %>' /></td>
+                                </tr>
+                                <tr>
+                                    <td>Phone:</td>
+                                    <td>
+                                        <asp:Label ID="PHONELabel" runat="server" Text='<%# Bind("PHONE") %>' /></td>
+                                </tr>
+                                <tr>
+                                    <td>Email:</td>
+                                    <td>
+                                        <asp:Label ID="EMAILLabel" runat="server" Text='<%# Eval("EMAIL") %>' /></td>
+                                </tr>
+                                <tr>
+                                    <td>Specialization:</td>
+                                    <td>
+                                        <asp:Label ID="SPECIALIZATIONLabel" runat="server" Text='<%# Bind("SPECIALIZATION") %>' /></td>
+                                </tr>
+                                <tr>
+                                    <td>Class Group:</td>
+                                    <td>
+                                        <asp:Label ID="CLASS_GROUPLabel" runat="server" Text='<%# Bind("CLASS_GROUP") %>' />
+                                </tr>
+                                <tr>
+                                    <td>Date Joined:</td>
+                                    <td>
+                                        <asp:Label ID="DATE_JOINEDLabel" runat="server" Text='<%# Bind("DATE_JOINED") %>' /></td>
+                                </tr>
+                            </table>
                         </ItemTemplate>
                     </asp:FormView>
-                    <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:collegedb %>" ProviderName="<%$ ConnectionStrings:collegedb.ProviderName %>" SelectCommand="SELECT STUDENT.STUDENT_ID, PERSON.FULL_NAME, PERSON.GENDER, PERSON.DOB, PERSON.PHONE, PERSON.EMAIL, STUDENT.SPECIALIZATION, STUDENT.&quot;group&quot;, STUDENT.DATE_JOINED FROM PERSON, STUDENT WHERE PERSON.PERSON_ID = STUDENT.STUDENT_ID AND (STUDENT.STUDENT_ID = :STUDENT_ID)">
+                    <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:collegedb %>" ProviderName="<%$ ConnectionStrings:collegedb.ProviderName %>" SelectCommand="SELECT STUDENT.STUDENT_ID, PERSON.FULL_NAME, PERSON.GENDER, PERSON.DOB, PERSON.PHONE, PERSON.EMAIL, STUDENT.SPECIALIZATION, STUDENT.CLASS_GROUP, STUDENT.DATE_JOINED FROM PERSON, STUDENT WHERE PERSON.PERSON_ID = STUDENT.STUDENT_ID AND (STUDENT.STUDENT_ID = :STUDENT_ID)">
                         <SelectParameters>
                             <asp:ControlParameter ControlID="DropDownList1" Name="STUDENT_ID" PropertyName="SelectedValue" />
                         </SelectParameters>

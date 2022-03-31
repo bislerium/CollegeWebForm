@@ -89,9 +89,9 @@
                                     <asp:Label ID="SPECIALIZATIONLabel" runat="server" Text='<%# Bind("SPECIALIZATION") %>' /></td>
                             </tr>
                             <tr>
-                                <td>Group:</td>
+                                <td>Class Group:</td>
                                 <td>
-                                    <asp:Label ID="groupLabel" runat="server" Text='<%# Bind("group") %>' /></td>
+                                    <asp:Label ID="CLASS_GROUPLabel" runat="server" Text='<%# Bind("CLASS_GROUP") %>' />
                             </tr>
                             <tr>
                                 <td>Date Joined:</td>
@@ -101,7 +101,7 @@
                         </table>
                     </ItemTemplate>
                 </asp:FormView>
-                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:collegedb %>" ProviderName="<%$ ConnectionStrings:collegedb.ProviderName %>" SelectCommand="SELECT STUDENT.STUDENT_ID, PERSON.FULL_NAME, PERSON.GENDER, PERSON.DOB, PERSON.PHONE, PERSON.EMAIL, STUDENT.SPECIALIZATION, STUDENT.&quot;group&quot;, STUDENT.DATE_JOINED FROM PERSON, STUDENT WHERE PERSON.PERSON_ID = STUDENT.STUDENT_ID AND STUDENT.STUDENT_ID = :STUDENT_ID">
+                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:collegedb %>" ProviderName="<%$ ConnectionStrings:collegedb.ProviderName %>" SelectCommand="SELECT STUDENT.STUDENT_ID, PERSON.FULL_NAME, PERSON.GENDER, PERSON.DOB, PERSON.PHONE, PERSON.EMAIL, STUDENT.SPECIALIZATION, STUDENT.CLASS_GROUP, STUDENT.DATE_JOINED FROM PERSON, STUDENT WHERE PERSON.PERSON_ID = STUDENT.STUDENT_ID AND STUDENT.STUDENT_ID = :STUDENT_ID">
                     <SelectParameters>
                         <asp:ControlParameter ControlID="DropDownList1" Name="STUDENT_ID" PropertyName="SelectedValue" />
                     </SelectParameters>
