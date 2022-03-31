@@ -84,7 +84,7 @@
             <td style="height: 23px">
                 <asp:FormView ID="FormView2" runat="server" DataKeyNames="STUDENT_ID" DataSourceID="SqlDataSource2">
                      <InsertItemTemplate>
-                        <table class="nav-justified" style="width: 400px; border-collapse: separate; border-spacing: 0 0.6em;">
+                         <table class="nav-justified" style="width: 400px; border-collapse: separate; border-spacing: 0 0.6em;">
                             <tr>
                                 <td>Student ID:</td>
                                 <td>&nbsp;</td>
@@ -100,10 +100,10 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>group:</td>
+                                <td>Class Group:</td>
                                 <td>&nbsp;</td>
                                 <td>
-                                    <asp:TextBox ID="groupTextBox" runat="server" Text='<%# Bind("group") %>' />
+                                    <asp:TextBox ID="CLASS_GROUPTextBox" runat="server" Text='<%# Bind("CLASS_GROUP") %>' />
                                 </td>
                             </tr>
                             <tr>
@@ -117,15 +117,15 @@
                                 <td></td>
                                 <td>&nbsp;</td>
                                 <td>
-                                    <asp:LinkButton class="btn btn-primary" ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />
-                                    &nbsp;<asp:LinkButton class="btn btn-secondary" ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+                                    <asp:LinkButton class="btn btn-primary" ID="LinkButton1" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />
+                                    &nbsp;<asp:LinkButton class="btn btn-secondary" ID="LinkButton2" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
                                 </td>
                             </tr>
-                        </table>
+                        </table>                                                
                     </InsertItemTemplate>
-                    <ItemTemplate>
+                     <ItemTemplate>
                         &nbsp;<asp:LinkButton class="btn btn-primary" ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="Then, create a student account" />
-                    </ItemTemplate>                 
+                    </ItemTemplate>                
                 </asp:FormView>
             </td>
         </tr>
@@ -219,7 +219,7 @@
                     <Columns>
                         <asp:BoundField DataField="STUDENT_ID" HeaderText="STUDENT_ID" ReadOnly="True" SortExpression="STUDENT_ID" />
                         <asp:BoundField DataField="SPECIALIZATION" HeaderText="SPECIALIZATION" SortExpression="SPECIALIZATION" />
-                        <asp:BoundField DataField="group" HeaderText="group" SortExpression="group" />
+                        <asp:BoundField DataField="CLASS_GROUP" HeaderText="CLASS_GROUP" SortExpression="CLASS_GROUP" />
                         <asp:BoundField DataField="DATE_JOINED" HeaderText="DATE_JOINED" SortExpression="DATE_JOINED" />
                         <asp:TemplateField ShowHeader="False">
                             <EditItemTemplate>
@@ -242,26 +242,26 @@
                     <SortedDescendingCellStyle BackColor="#D8D8F0" />
                     <SortedDescendingHeaderStyle BackColor="#3E3277" />
                 </asp:GridView>
-                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:collegedb %>" DeleteCommand="DELETE FROM &quot;STUDENT&quot; WHERE &quot;STUDENT_ID&quot; = :original_STUDENT_ID AND &quot;SPECIALIZATION&quot; = :original_SPECIALIZATION AND &quot;group&quot; = :original_group AND &quot;DATE_JOINED&quot; = :original_DATE_JOINED" InsertCommand="INSERT INTO STUDENT(STUDENT_ID, SPECIALIZATION, &quot;group&quot;, DATE_JOINED) VALUES (:STUDENT_ID, :SPECIALIZATION, :group , :DATE_JOINED)" OldValuesParameterFormatString="original_{0}" ProviderName="<%$ ConnectionStrings:collegedb.ProviderName %>" SelectCommand="SELECT * FROM &quot;STUDENT&quot;" UpdateCommand="UPDATE STUDENT SET SPECIALIZATION = :SPECIALIZATION, &quot;group&quot; = :group , DATE_JOINED = :DATE_JOINED WHERE (STUDENT_ID = :original_STUDENT_ID) AND (SPECIALIZATION = :original_SPECIALIZATION) AND (&quot;group&quot; = :original_group) AND (DATE_JOINED = :original_DATE_JOINED)">
+                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:collegedb %>" DeleteCommand="DELETE FROM &quot;STUDENT&quot; WHERE &quot;STUDENT_ID&quot; = :original_STUDENT_ID AND &quot;SPECIALIZATION&quot; = :original_SPECIALIZATION AND &quot;CLASS_GROUP&quot; = :original_CLASS_GROUP AND &quot;DATE_JOINED&quot; = :original_DATE_JOINED" InsertCommand="INSERT INTO &quot;STUDENT&quot; (&quot;STUDENT_ID&quot;, &quot;SPECIALIZATION&quot;, &quot;CLASS_GROUP&quot;, &quot;DATE_JOINED&quot;) VALUES (:STUDENT_ID, :SPECIALIZATION, :CLASS_GROUP, :DATE_JOINED)" OldValuesParameterFormatString="original_{0}" ProviderName="<%$ ConnectionStrings:collegedb.ProviderName %>" SelectCommand="SELECT * FROM &quot;STUDENT&quot;" UpdateCommand="UPDATE &quot;STUDENT&quot; SET &quot;SPECIALIZATION&quot; = :SPECIALIZATION, &quot;CLASS_GROUP&quot; = :CLASS_GROUP, &quot;DATE_JOINED&quot; = :DATE_JOINED WHERE &quot;STUDENT_ID&quot; = :original_STUDENT_ID AND &quot;SPECIALIZATION&quot; = :original_SPECIALIZATION AND &quot;CLASS_GROUP&quot; = :original_CLASS_GROUP AND &quot;DATE_JOINED&quot; = :original_DATE_JOINED">
                     <DeleteParameters>
                         <asp:Parameter Name="original_STUDENT_ID" Type="Decimal" />
                         <asp:Parameter Name="original_SPECIALIZATION" Type="String" />
-                        <asp:Parameter Name="original_group" Type="String" />
+                        <asp:Parameter Name="original_CLASS_GROUP" Type="String" />
                         <asp:Parameter Name="original_DATE_JOINED" Type="DateTime" />
                     </DeleteParameters>
                     <InsertParameters>
                         <asp:Parameter Name="STUDENT_ID" Type="Decimal" />
                         <asp:Parameter Name="SPECIALIZATION" Type="String" />
-                        <asp:Parameter Name="group" Type="String" />
+                        <asp:Parameter Name="CLASS_GROUP" Type="String" />
                         <asp:Parameter Name="DATE_JOINED" Type="DateTime" />
                     </InsertParameters>
                     <UpdateParameters>
                         <asp:Parameter Name="SPECIALIZATION" Type="String" />
-                        <asp:Parameter Name="group" Type="String" />
+                        <asp:Parameter Name="CLASS_GROUP" Type="String" />
                         <asp:Parameter Name="DATE_JOINED" Type="DateTime" />
                         <asp:Parameter Name="original_STUDENT_ID" Type="Decimal" />
                         <asp:Parameter Name="original_SPECIALIZATION" Type="String" />
-                        <asp:Parameter Name="original_group" Type="String" />
+                        <asp:Parameter Name="original_CLASS_GROUP" Type="String" />
                         <asp:Parameter Name="original_DATE_JOINED" Type="DateTime" />
                     </UpdateParameters>
                 </asp:SqlDataSource>
